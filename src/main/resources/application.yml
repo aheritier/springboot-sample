@@ -1,0 +1,20 @@
+spring:
+  resources:
+    chain:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  security:
+    user:
+      name: foo
+      password: bar
+
+management:
+  endpoints:
+    web:
+      base-path: /api/manage
+  endpoint:
+    health:
+      show-details: when_authorized
