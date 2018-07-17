@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.springframework.web.reactive.function.BodyInserters.fromMultipartData;
+import static org.springframework.web.reactive.function.BodyInserters.fromResource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {Application.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -42,7 +43,7 @@ public class ControllerTest {
                 .body(fromMultipartData("file", new ClassPathResource("/META-INF/file.txt")))
                 .exchange()
                 .expectStatus()
-                .isUnauthorized();
+                .isAccepted();
     }
 
 }
